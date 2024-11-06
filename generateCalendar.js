@@ -15,13 +15,13 @@ const generateICSContent = (rounds) => {
     let icsContent = 'BEGIN:VCALENDAR\nVERSION:2.0\nCALSCALE:GREGORIAN\n';
 
     rounds.forEach((round) => {
-        const startDate = formatDate(round.startDateTime);
-        const endDate = formatDate(round.endDateTime);
+        const endDate = formatDate(round.endDateTime);  // Use endDateTime as the deadline
+
         icsContent += `BEGIN:VEVENT\n`;
         icsContent += `UID:${round.id}@super6.com\n`;
-        icsContent += `DTSTAMP:${startDate}\n`;
-        icsContent += `DTSTART:${startDate}\n`;
-        icsContent += `DTEND:${endDate}\n`;
+        icsContent += `DTSTAMP:${endDate}\n`;  // Use endDate as the timestamp
+        icsContent += `DTSTART:${endDate}\n`;  // Use endDate as the start time for the event
+        icsContent += `DTEND:${endDate}\n`;    // Use endDate as the end time for the event
         icsContent += `SUMMARY:Super 6: Round ${round.id} deadline\n`;
         icsContent += `END:VEVENT\n`;
     });
