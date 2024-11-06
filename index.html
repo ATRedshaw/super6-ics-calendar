@@ -172,6 +172,20 @@
             border-radius: 8px;
         }
 
+        ul, ol {
+            margin-left: 1.5rem;  
+            padding-left: 1.5rem; 
+        }
+
+        ul ul, ol ol {
+            margin-left: 2rem; 
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem; 
+        }
+
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2rem;
@@ -228,6 +242,21 @@
                     <li>Select "From URL"</li>
                     <li>Paste the copied calendar URL and click "Add calendar"</li>
                 </ol>
+                <h5>Setting Up Notifications:</h5>
+                <ol>
+                    <li>Click the three dots ⋮ next to the calendar name</li>
+                    <li>Select "Settings"</li>
+                    <li>Scroll to "Event notifications"</li>
+                    <li>Click "Add notification"</li>
+                    <li>Choose your preferred notification method:
+                        <ul>
+                            <li>Email</li>
+                            <li>Desktop notification</li>
+                            <li>Mobile push notification (if synced)</li>
+                        </ul>
+                    </li>
+                    <li>Set your desired notification timing (e.g., 1 hour before)</li>
+                </ol>
             </div>
             <div class="platform-instructions">
                 <h4>On Mobile App:</h4>
@@ -238,9 +267,24 @@
                     <li>Choose "Subscribe to calendar"</li>
                     <li>Paste the URL and tap "Add calendar"</li>
                 </ol>
+                <h5>Mobile Notifications:</h5>
+                <ol>
+                    <li>Tap the menu icon (≡)</li>
+                    <li>Select "Settings"</li>
+                    <li>Tap the subscribed calendar name</li>
+                    <li>Tap "Notifications"</li>
+                    <li>Choose from options:
+                        <ul>
+                            <li>None</li>
+                            <li>Alert</li>
+                            <li>Persistent notification</li>
+                        </ul>
+                    </li>
+                    <li>Set custom notification sounds if desired</li>
+                </ol>
             </div>
         </div>
-
+        
         <div id="outlook" class="tab-content">
             <h3>Outlook Calendar</h3>
             <div class="platform-instructions">
@@ -250,6 +294,20 @@
                     <li>Click "Add calendar" in the left sidebar</li>
                     <li>Choose "Subscribe from web"</li>
                     <li>Paste the calendar URL and click "Import"</li>
+                </ol>
+                <h5>Notification Setup:</h5>
+                <ol>
+                    <li>Click the gear icon ⚙️ in the top right</li>
+                    <li>Select "View all Outlook settings"</li>
+                    <li>Go to "Calendar" → "Events and invitations"</li>
+                    <li>Under "Notifications":
+                        <ul>
+                            <li>Set default reminders</li>
+                            <li>Choose email notification preferences</li>
+                            <li>Enable desktop notifications</li>
+                            <li>Configure working hours for smart notifications</li>
+                        </ul>
+                    </li>
                 </ol>
             </div>
             <div class="platform-instructions">
@@ -262,9 +320,23 @@
                     <li>Choose "Add from URL"</li>
                     <li>Paste the calendar URL and tap "Done"</li>
                 </ol>
+                <h5>Mobile Notification Settings:</h5>
+                <ol>
+                    <li>Tap the menu icon (≡)</li>
+                    <li>Go to "Settings" → "Notifications"</li>
+                    <li>Configure:
+                        <ul>
+                            <li>Event reminders</li>
+                            <li>Notification timing</li>
+                            <li>Alert style (banner/alert)</li>
+                            <li>Sound preferences</li>
+                        </ul>
+                    </li>
+                    <li>Enable "Calendar Notifications" in device settings</li>
+                </ol>
             </div>
         </div>
-
+        
         <div id="apple" class="tab-content">
             <h3>Apple Calendar</h3>
             <div class="platform-instructions">
@@ -275,6 +347,27 @@
                     <li>Paste the calendar URL and click "Subscribe"</li>
                     <li>Adjust your refresh and alert preferences</li>
                     <li>Click "OK" to finish</li>
+                </ol>
+                <h5>Setting Up Mac Notifications:</h5>
+                <ol>
+                    <li>Open System Preferences</li>
+                    <li>Click "Notifications & Focus"</li>
+                    <li>Select "Calendar"</li>
+                    <li>Configure:
+                        <ul>
+                            <li>Allow notifications</li>
+                            <li>Alert style</li>
+                            <li>Preview options</li>
+                            <li>Notification sound</li>
+                        </ul>
+                    </li>
+                    <li>In Calendar app preferences:
+                        <ul>
+                            <li>Set default alert times</li>
+                            <li>Choose alert types</li>
+                            <li>Configure time-sensitive notifications</li>
+                        </ul>
+                    </li>
                 </ol>
             </div>
             <div class="platform-instructions">
@@ -287,9 +380,30 @@
                     <li>Paste the calendar URL and tap "Next"</li>
                     <li>Adjust your settings and tap "Save"</li>
                 </ol>
+                <h5>iOS Notification Setup:</h5>
+                <ol>
+                    <li>Go to Settings → "Notifications"</li>
+                    <li>Tap "Calendar"</li>
+                    <li>Configure:
+                        <ul>
+                            <li>Allow Notifications</li>
+                            <li>Alert style (Banners/Alerts)</li>
+                            <li>Sounds and Badges</li>
+                            <li>Preview style</li>
+                            <li>Notification grouping</li>
+                        </ul>
+                    </li>
+                    <li>In Calendar Settings:
+                        <ul>
+                            <li>Set default alert times</li>
+                            <li>Configure time-sensitive alerts</li>
+                            <li>Enable location-based alerts if needed</li>
+                        </ul>
+                    </li>
+                </ol>
             </div>
         </div>
-
+        
         <div id="other" class="tab-content">
             <h3>Other Calendar Applications</h3>
             <div class="platform-instructions">
@@ -299,6 +413,23 @@
                     <li>Copy the Super 6 calendar URL provided above</li>
                     <li>Paste the URL when prompted</li>
                     <li>Set your preferred update frequency if available</li>
+                </ol>
+                <h5>General Notification Setup:</h5>
+                <ol>
+                    <li>Look for these common notification settings:
+                        <ul>
+                            <li>Default reminders</li>
+                            <li>Alert timing</li>
+                            <li>Notification sounds</li>
+                            <li>Push notifications</li>
+                        </ul>
+                    </li>
+                    <li>Check both:
+                        <ul>
+                            <li>App-specific notification settings</li>
+                            <li>System/device notification settings</li>
+                        </ul>
+                    </li>
                 </ol>
             </div>
             <div class="general-tips">
@@ -318,6 +449,14 @@
                     <li>Some apps may take a few minutes to sync the calendar</li>
                     <li>Check your calendar app's settings for refresh frequency options</li>
                     <li>Make sure your device has an active internet connection</li>
+                </ul>
+                <h5>Notification Troubleshooting:</h5>
+                <ul>
+                    <li>Check system permissions for the app</li>
+                    <li>Verify notification settings aren't blocked</li>
+                    <li>Ensure app is allowed to run in background</li>
+                    <li>Check Do Not Disturb/Focus mode settings</li>
+                    <li>Verify notification schedule timing</li>
                 </ul>
             </div>
         </div>
