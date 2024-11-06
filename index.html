@@ -186,6 +186,15 @@
             margin-bottom: 0.8rem; 
         }
 
+        .description-text {
+            font-size: 1rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2rem;
@@ -213,12 +222,15 @@
 
 <body>
     <header>
-        <h1>Super 6 Calendar Sync</h1>
+        <h1>Alex's Super 6 Calendar Sync</h1>
         <p>Never miss a Super 6 deadline - sync with your favorite calendar app</p>
     </header>
 
     <main>
         <div class="input-container">
+            <p class="description-text">
+                Copy the calendar URL below to subscribe to the Super 6 Calendar. This will ensure automatic updates, so you never miss a deadline. Please follow the instructions based on your calendar app to complete the setup.
+            </p>
             <div class="input-wrapper">
                 <input id="calendar-url" type="text" value="https://raw.githubusercontent.com/ATRedshaw/super6-ics-calendar/main/super6-calendar.ics" class="input-field" readonly>
                 <button class="copy-button" onclick="copyURL()">Copy URL</button>
