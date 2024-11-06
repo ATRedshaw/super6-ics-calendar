@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <title>Super 6 Calendar Sync</title>
     <style>
         :root {
@@ -186,6 +187,26 @@
             margin-bottom: 0.8rem; 
         }
 
+        .highlight-note {
+            background-color: #FFFFE0; /* Light Yellow Background */
+            padding: 0.8rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            border: 1px solid #DDD;
+            display: flex;
+            align-items: center;
+        }
+
+        .highlight-note i {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            color: #666;
+        }
+
+        .highlight-note span {
+            font-weight: bold;
+        }
+
         .description-text {
             font-size: 1rem;
             color: var(--primary-dark);
@@ -229,12 +250,18 @@
     <main>
         <div class="input-container">
             <p class="description-text">
-                Copy the calendar URL below to subscribe to the Super 6 Calendar. This will ensure automatic updates, so you never miss a deadline. Please follow the instructions based on your calendar app to complete the setup.
+                Automatically sync Super 6 deadlines to your calendar and receive updates as they become available, ensuring you never miss a deadline.
             </p>
             <div class="input-wrapper">
                 <input id="calendar-url" type="text" value="https://raw.githubusercontent.com/ATRedshaw/super6-ics-calendar/main/super6-calendar.ics" class="input-field" readonly>
                 <button class="copy-button" onclick="copyURL()">Copy URL</button>
             </div>
+            <div class="highlight-note">
+                <i class="fas fa-info-circle"></i>Not all future deadlines are immediately available in the calendar feed. Deadlines for dates further in the future will be added automatically as they are made available by Super 6.
+            </div>
+            <p class="description-text">
+                Copy the URL above and follow the instructions below for your chosen calendar provider.
+            </p>
         </div>
 
         <div class="tabs">
@@ -253,6 +280,7 @@
                     <li>Click the "+" next to "Other calendars" in the left sidebar</li>
                     <li>Select "From URL"</li>
                     <li>Paste the copied calendar URL and click "Add calendar"</li>
+                    <li>(Recommended) Rename your calendar to "Super 6 Calendar" by clicking on the calendar name, then selecting "Settings" and editing the name field.</li>
                 </ol>
                 <h5>Setting Up Notifications:</h5>
                 <ol>
@@ -278,6 +306,7 @@
                     <li>Scroll down and tap "Add calendar"</li>
                     <li>Choose "Subscribe to calendar"</li>
                     <li>Paste the URL and tap "Add calendar"</li>
+                    <li>(Recommended) Rename your calendar to "Super 6 Calendar" by selecting the calendar name and editing it in the settings.</li>
                 </ol>
                 <h5>Mobile Notifications:</h5>
                 <ol>
@@ -306,6 +335,7 @@
                     <li>Click "Add calendar" in the left sidebar</li>
                     <li>Choose "Subscribe from web"</li>
                     <li>Paste the calendar URL and click "Import"</li>
+                    <li>(Recommended) Rename your calendar to "Super 6 Calendar" by clicking the calendar name and editing it in the settings.</li>
                 </ol>
                 <h5>Notification Setup:</h5>
                 <ol>
@@ -331,6 +361,7 @@
                     <li>Select "Add calendar"</li>
                     <li>Choose "Add from URL"</li>
                     <li>Paste the calendar URL and tap "Done"</li>
+                    <li>(Recommended) Rename your calendar to "Super 6 Calendar" by selecting the calendar name in settings and editing it.</li>
                 </ol>
                 <h5>Mobile Notification Settings:</h5>
                 <ol>
@@ -359,6 +390,7 @@
                     <li>Paste the calendar URL and click "Subscribe"</li>
                     <li>Adjust your refresh and alert preferences</li>
                     <li>Click "OK" to finish</li>
+                    <li>(Recommended) Rename your calendar to "Super 6 Calendar" by clicking the calendar name and editing it in the preferences.</li>
                 </ol>
                 <h5>Setting Up Mac Notifications:</h5>
                 <ol>
@@ -391,6 +423,7 @@
                     <li>Choose "Other" → "Add Subscribed Calendar"</li>
                     <li>Paste the calendar URL and tap "Next"</li>
                     <li>Adjust your settings and tap "Save"</li>
+                    <li>(Recommended) Rename your calendar to "Super 6 Calendar" by going to the calendar settings on your iPhone/iPad.</li>
                 </ol>
                 <h5>iOS Notification Setup:</h5>
                 <ol>
@@ -425,6 +458,7 @@
                     <li>Copy the Super 6 calendar URL provided above</li>
                     <li>Paste the URL when prompted</li>
                     <li>Set your preferred update frequency if available</li>
+                    <li>(Recommended) Rename your calendar to "Super 6 Calendar" if the option is available within the app settings.</li>
                 </ol>
                 <h5>General Notification Setup:</h5>
                 <ol>
@@ -471,7 +505,7 @@
                     <li>Verify notification schedule timing</li>
                 </ul>
             </div>
-        </div>
+        </div>        
     </main>
 
     <footer>
