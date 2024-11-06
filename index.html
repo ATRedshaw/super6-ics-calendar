@@ -4,221 +4,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super 6 Calendar</title>
+    <title>Super 6 Calendar Sync</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary: #2E7D32;
+            --primary-dark: #1B5E20;
+            --secondary: #81C784;
+            --text: #333;
+            --background: #E8F5E9;
+            --white: #fff;
+        }
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 2rem 1rem;
             text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
 
         main {
-            padding: 20px;
-            max-width: 1000px;
+            flex: 1;
+            padding: 2rem 1rem;
+            max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
         }
 
-        h1, h2 {
-            color: #333;
+        .input-container {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .input-field {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .copy-button {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .copy-button:hover {
+            background-color: var(--primary-dark);
         }
 
         .tabs {
             display: flex;
-            justify-content: space-evenly;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-top: 20px;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
         }
 
         .tab-button {
-            padding: 10px;
+            padding: 0.8rem 1.5rem;
+            background: var(--white);
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            border: 1px solid #ddd;
-            background-color: #fff;
-            flex: 1;
-            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s;
         }
 
         .tab-button:hover {
-            background-color: #f1f1f1;
+            background-color: rgba(46, 125, 50, 0.1);
         }
 
         .tab-button.active {
-            background-color: #4CAF50;
-            color: white;
+            background-color: var(--primary);
+            color: var(--white);
         }
 
         .tab-content {
             display: none;
-            padding: 20px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .tab-content.active {
             display: block;
         }
 
-        .input-container {
-            display: flex;
-            align-items: center;
-            margin: 20px 0;
+        .tab-content h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
 
-        .input-field {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-right: 10px;
+        .tab-content ol {
+            padding-left: 1.5rem;
         }
 
-        .copy-button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .tab-content li {
+            margin-bottom: 0.8rem;
         }
 
-        .copy-button:hover {
-            background-color: #45a049;
-        }
-
-        .copy-button:focus {
-            outline: none;
+        .platform-instructions {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e0e0e0;
         }
 
         footer {
-            background-color: #333;
-            color: white;
-            padding: 10px;
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 1rem;
             text-align: center;
-            font-size: 14px;
+            margin-top: auto;
+        }
+
+        .general-tips {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: rgba(46, 125, 50, 0.1);
+            border-radius: 8px;
         }
 
         @media (max-width: 768px) {
-            .tabs {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .input-wrapper {
                 flex-direction: column;
             }
 
-            .input-container {
-                flex-direction: column;
-                align-items: stretch;
+            .copy-button {
+                width: 100%;
             }
 
-            .input-field {
-                margin-bottom: 10px;
+            .tab-button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .tab-content {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 
 <body>
-
     <header>
-        <h1>Super 6 Calendar</h1>
-        <p>Stay up-to-date with the latest Super 6 deadlines. Add this calendar to your preferred calendar app.</p>
+        <h1>Super 6 Calendar Sync</h1>
+        <p>Never miss a Super 6 deadline - sync with your favorite calendar app</p>
     </header>
 
     <main>
-
-        <!-- Copiable URL -->
         <div class="input-container">
-            <input id="calendar-url" type="text" value="https://raw.githubusercontent.com/ATRedshaw/super6-ics-calendar/main/super6-calendar.ics" class="input-field" readonly>
-            <button class="copy-button" onclick="copyURL()">Copy URL</button>
+            <div class="input-wrapper">
+                <input id="calendar-url" type="text" value="https://raw.githubusercontent.com/ATRedshaw/super6-ics-calendar/main/super6-calendar.ics" class="input-field" readonly>
+                <button class="copy-button" onclick="copyURL()">Copy URL</button>
+            </div>
         </div>
 
-        <h2>How to Add the Calendar to Your App</h2>
-        <p>Use the instructions below to add the Super 6 calendar to your favorite calendar app:</p>
-
-        <!-- Tabs -->
         <div class="tabs">
-            <div class="tab-button active" onclick="openTab(event, 'google')">Google Calendar</div>
-            <div class="tab-button" onclick="openTab(event, 'outlook')">Outlook Calendar</div>
-            <div class="tab-button" onclick="openTab(event, 'apple')">Apple Calendar</div>
+            <button class="tab-button active" onclick="openTab(event, 'google')">Google Calendar</button>
+            <button class="tab-button" onclick="openTab(event, 'outlook')">Outlook</button>
+            <button class="tab-button" onclick="openTab(event, 'apple')">Apple Calendar</button>
+            <button class="tab-button" onclick="openTab(event, 'other')">Other Calendars</button>
         </div>
 
-        <!-- Google Calendar -->
         <div id="google" class="tab-content active">
             <h3>Google Calendar</h3>
-            <p>To add the Super 6 calendar to Google Calendar:</p>
-            <ol>
-                <li>Copy the calendar URL: <strong>https://raw.githubusercontent.com/ATRedshaw/super6-ics-calendar/main/super6-calendar.ics</strong></li>
-                <li>Go to <a href="https://calendar.google.com" target="_blank">Google Calendar</a>.</li>
-                <li>On the left panel, find "Other calendars" and click the "+" sign.</li>
-                <li>Select "From URL" and paste the copied URL.</li>
-                <li>Click "Add Calendar" to subscribe to the Super 6 calendar.</li>
-            </ol>
+            <div class="platform-instructions">
+                <h4>On Desktop:</h4>
+                <ol>
+                    <li>Go to <a href="https://calendar.google.com" target="_blank">Google Calendar</a></li>
+                    <li>Click the "+" next to "Other calendars" in the left sidebar</li>
+                    <li>Select "From URL"</li>
+                    <li>Paste the copied calendar URL and click "Add calendar"</li>
+                </ol>
+            </div>
+            <div class="platform-instructions">
+                <h4>On Mobile App:</h4>
+                <ol>
+                    <li>Open the Google Calendar app</li>
+                    <li>Tap the menu icon (≡) then "Settings"</li>
+                    <li>Scroll down and tap "Add calendar"</li>
+                    <li>Choose "Subscribe to calendar"</li>
+                    <li>Paste the URL and tap "Add calendar"</li>
+                </ol>
+            </div>
         </div>
 
-        <!-- Outlook Calendar -->
         <div id="outlook" class="tab-content">
             <h3>Outlook Calendar</h3>
-            <p>To add the Super 6 calendar to Outlook:</p>
-            <ol>
-                <li>Copy the calendar URL: <strong>https://raw.githubusercontent.com/ATRedshaw/super6-ics-calendar/main/super6-calendar.ics</strong></li>
-                <li>Go to <a href="https://outlook.live.com" target="_blank">Outlook Calendar</a>.</li>
-                <li>On the left panel, click "Add calendar" and select "Subscribe from Web".</li>
-                <li>Paste the copied URL into the "Link to the calendar" field.</li>
-                <li>Click "Import" to subscribe to the Super 6 calendar.</li>
-            </ol>
+            <div class="platform-instructions">
+                <h4>On Desktop/Web:</h4>
+                <ol>
+                    <li>Go to <a href="https://outlook.live.com/calendar" target="_blank">Outlook Calendar</a></li>
+                    <li>Click "Add calendar" in the left sidebar</li>
+                    <li>Choose "Subscribe from web"</li>
+                    <li>Paste the calendar URL and click "Import"</li>
+                </ol>
+            </div>
+            <div class="platform-instructions">
+                <h4>On Mobile App:</h4>
+                <ol>
+                    <li>Open the Outlook mobile app</li>
+                    <li>Tap the calendar icon</li>
+                    <li>Tap the menu icon (≡) then the gear icon ⚙️</li>
+                    <li>Select "Add calendar"</li>
+                    <li>Choose "Add from URL"</li>
+                    <li>Paste the calendar URL and tap "Done"</li>
+                </ol>
+            </div>
         </div>
 
-        <!-- Apple Calendar -->
         <div id="apple" class="tab-content">
             <h3>Apple Calendar</h3>
-            <p>To add the Super 6 calendar to Apple Calendar:</p>
-            <ol>
-                <li>Copy the calendar URL: <strong>https://raw.githubusercontent.com/ATRedshaw/super6-ics-calendar/main/super6-calendar.ics</strong></li>
-                <li>Open the Apple Calendar app on your Mac.</li>
-                <li>Click "File" in the menu and choose "New Calendar Subscription".</li>
-                <li>Paste the copied URL into the "Calendar URL" field.</li>
-                <li>Click "Subscribe" to add the Super 6 calendar.</li>
-            </ol>
+            <div class="platform-instructions">
+                <h4>On Mac:</h4>
+                <ol>
+                    <li>Open the Calendar app</li>
+                    <li>Click "File" → "New Calendar Subscription"</li>
+                    <li>Paste the calendar URL and click "Subscribe"</li>
+                    <li>Adjust your refresh and alert preferences</li>
+                    <li>Click "OK" to finish</li>
+                </ol>
+            </div>
+            <div class="platform-instructions">
+                <h4>On iPhone/iPad:</h4>
+                <ol>
+                    <li>Go to Settings</li>
+                    <li>Scroll down and tap "Calendar"</li>
+                    <li>Tap "Accounts" → "Add Account"</li>
+                    <li>Choose "Other" → "Add Subscribed Calendar"</li>
+                    <li>Paste the calendar URL and tap "Next"</li>
+                    <li>Adjust your settings and tap "Save"</li>
+                </ol>
+            </div>
         </div>
 
+        <div id="other" class="tab-content">
+            <h3>Other Calendar Applications</h3>
+            <div class="platform-instructions">
+                <p>Most calendar applications support subscribing to external calendars using an ICS URL. Here's how to generally add the Super 6 calendar:</p>
+                <ol>
+                    <li>Look for an option like "Subscribe to Calendar" or "Add External Calendar"</li>
+                    <li>Copy the Super 6 calendar URL provided above</li>
+                    <li>Paste the URL when prompted</li>
+                    <li>Set your preferred update frequency if available</li>
+                </ol>
+            </div>
+            <div class="general-tips">
+                <h4>Common Terms to Look For:</h4>
+                <ul>
+                    <li>"Subscribe to Calendar"</li>
+                    <li>"Add Internet Calendar"</li>
+                    <li>"Add by URL"</li>
+                    <li>"iCal subscription"</li>
+                    <li>"Add external calendar"</li>
+                </ul>
+            </div>
+            <div class="platform-instructions">
+                <h4>Troubleshooting Tips:</h4>
+                <ul>
+                    <li>Ensure you've copied the complete URL</li>
+                    <li>Some apps may take a few minutes to sync the calendar</li>
+                    <li>Check your calendar app's settings for refresh frequency options</li>
+                    <li>Make sure your device has an active internet connection</li>
+                </ul>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <p>Created by ATRedshaw - Super 6 Calendar</p>
+        <p>Created by ATRedshaw - Super 6 Calendar Sync</p>
     </footer>
 
     <script>
-        // Copy URL function
         function copyURL() {
             const copyText = document.getElementById("calendar-url");
             copyText.select();
             document.execCommand("copy");
-            alert("URL copied to clipboard!");
+            
+            const button = document.querySelector('.copy-button');
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+            }, 2000);
         }
 
-        // Tab switching functionality
         function openTab(event, tabName) {
             const tabContents = document.querySelectorAll('.tab-content');
             const tabButtons = document.querySelectorAll('.tab-button');
 
-            // Hide all tab content
             tabContents.forEach(content => content.classList.remove('active'));
-
-            // Remove active class from all buttons
             tabButtons.forEach(button => button.classList.remove('active'));
 
-            // Show the clicked tab content and add active class to the clicked tab button
             document.getElementById(tabName).classList.add('active');
             event.currentTarget.classList.add('active');
         }
