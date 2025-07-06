@@ -95,7 +95,3 @@ This project provides a simple way to sync Super 6 deadlines with your calendar 
 * Ensure app is allowed to run in background
 * Check Do Not Disturb/Focus mode settings
 * Verify notification schedule timing
-
-## Credits
-
-Created by ATRedshaw - Super 6 Calendar Sync
